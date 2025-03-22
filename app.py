@@ -50,6 +50,9 @@ st.markdown("Explore the relationship between lifestyle factors and mental healt
 def load_data():
     df = pd.read_csv("Mental_Health_Lifestyle_Dataset.csv")
     
+    # Fill NaN values with a placeholder text
+    df["Mental Health Condition"] = df["Mental Health Condition"].fillna("Not Specified")
+    
     # Convert Stress Level to numeric for easier analysis
     stress_map = {"Low": 1, "Moderate": 2, "High": 3}
     df["Stress Level Numeric"] = df["Stress Level"].map(stress_map)
